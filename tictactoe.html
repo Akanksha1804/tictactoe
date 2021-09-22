@@ -1,0 +1,213 @@
+<html>
+    <head>
+        <title>TIC TAC TOE</title>
+    </head>
+    <style>
+        div{
+            text-align: center;
+        }
+        #top_row,#mid_row,#bot_row{
+            display: flex;
+            flex-direction: row;
+        }
+        #divone{
+            border-style: solid;
+            border-right-color: grey;
+            border-bottom-color: grey;
+            border-top-color: white;
+            border-left-color: white;
+        }
+        #divtwo{
+            border-style: solid;
+            border-right-color: white;
+            border-bottom-color: grey;
+            border-top-color: white;
+            border-left-color: white;
+        }
+        #divthree{
+            border-style: solid;
+            border-right-color: white;
+            border-bottom-color: grey;
+            border-top-color: white;
+            border-left-color: grey;
+        }
+        #divfour{
+            border-style: solid;
+            border-right-color: grey;
+            border-bottom-color: white;
+            border-top-color: white;
+            border-left-color: white;
+        }
+        #divfive{
+            border-style: solid;
+            border-right-color: white;
+            border-bottom-color: white;
+            border-top-color: white;
+            border-left-color: white;
+        }
+        #divsix{
+            border-style: solid;
+            border-right-color: white;
+            border-bottom-color: white;
+            border-top-color: white;
+            border-left-color: grey;
+        }
+        #divseven{
+            border-style: solid;
+            border-right-color: grey;
+            border-bottom-color: white;
+            border-top-color: grey;
+            border-left-color: white;
+        }
+        #diveight{
+            border-style: solid;
+            border-right-color: white;
+            border-bottom-color: white;
+            border-top-color: grey;
+            border-left-color: white;
+        }
+        #divnine{
+            border-style: solid;
+            border-right-color: white;
+            border-bottom-color: white;
+            border-top-color: grey;
+            border-left-color: grey;
+        }
+        #btnone,#btntwo{
+            margin: 20px;
+        }
+
+    </style>
+    <body>
+        <script>
+
+            var mydivtop = document.createElement("div");
+            mydivtop.setAttribute("id","top_row");
+            
+
+            var mydiv1 = document.createElement("div");
+            mydiv1.setAttribute("id","divone");
+            mydiv1.style.height = "100px";
+            mydiv1.style.width = "100px";
+            mydiv1.setAttribute("onclick","printletter('divone')");
+
+            mydivtop.appendChild(mydiv1);
+
+            var mydiv2 = document.createElement("div");
+            mydiv2.setAttribute("id","divtwo");
+            mydiv2.style.height = "100px";
+            mydiv2.style.width = "100px";
+            mydiv2.setAttribute("onclick","printletter('divtwo')");
+
+            mydivtop.appendChild(mydiv2);
+
+            var mydiv3 = document.createElement("div");
+            mydiv3.setAttribute("id","divthree");
+            mydiv3.style.height = "100px";
+            mydiv3.style.width = "100px";
+            mydiv3.setAttribute("onclick","printletter('divthree')");
+
+            mydivtop.appendChild(mydiv3);
+
+
+            var mydivmid = document.createElement("div");
+            mydivmid.setAttribute("id","mid_row");
+            
+
+            var mydiv4 = document.createElement("div");
+            mydiv4.setAttribute("id","divfour");
+            mydiv4.style.height = "100px";
+            mydiv4.style.width = "100px";
+            mydiv4.setAttribute("onclick","printletter('divfour')");
+
+            mydivmid.appendChild(mydiv4);
+
+            var mydiv5 = document.createElement("div");
+            mydiv5.setAttribute("id","divfive");
+            mydiv5.style.height = "100px";
+            mydiv5.style.width = "100px";
+            mydiv5.setAttribute("onclick","printletter('divfive')");
+
+            mydivmid.appendChild(mydiv5);
+
+            var mydiv6 = document.createElement("div");
+            mydiv6.setAttribute("id","divsix");
+            mydiv6.style.height = "100px";
+            mydiv6.style.width = "100px";
+            mydiv6.setAttribute("onclick","printletter('divsix')");
+
+            mydivmid.appendChild(mydiv6);
+
+
+            var mydivbot = document.createElement("div");
+            mydivbot.setAttribute("id","bot_row");
+            
+
+            var mydiv7 = document.createElement("div");
+            mydiv7.setAttribute("id","divseven");
+            mydiv7.style.height = "100px";
+            mydiv7.style.width = "100px";
+            mydiv7.setAttribute("onclick","printletter('divseven')");
+
+            mydivbot.appendChild(mydiv7);
+
+            var mydiv8 = document.createElement("div");
+            mydiv8.setAttribute("id","diveight");
+            mydiv8.style.height = "100px";
+            mydiv8.style.width = "100px";
+            mydiv8.setAttribute("onclick","printletter('diveight')");
+
+            mydivbot.appendChild(mydiv8);
+
+            var mydiv9 = document.createElement("div");
+            mydiv9.setAttribute("id","divnine");
+            mydiv9.style.height = "100px";
+            mydiv9.style.width = "100px";
+            mydiv9.setAttribute("onclick","printletter('divnine')");
+
+            mydivbot.appendChild(mydiv9);
+
+            document.body.appendChild(mydivtop);
+            document.body.appendChild(mydivmid);
+            document.body.appendChild(mydivbot);
+
+            var mybtn1 = document.createElement("button");
+            mybtn1.setAttribute("id","btnone");
+            mybtn1.setAttribute("onclick","afterone()");
+            mybtn1.innerText = "X - Player One Turn";
+            document.body.appendChild(mybtn1);
+
+            var mybtn2 = document.createElement("button");
+            mybtn2.setAttribute("id","btntwo");
+            mybtn2.innerText = "O - Player Two Turn";
+            mybtn2.setAttribute("disabled","true");
+            mybtn2.setAttribute("onclick","aftertwo()");
+            document.body.appendChild(mybtn2);
+
+            function afterone(){
+                mybtn2.removeAttribute("disabled");
+                mybtn1.setAttribute("disabled","true");
+            }
+
+            function aftertwo(){
+                mybtn1.removeAttribute("disabled");
+                mybtn2.setAttribute("disabled","true");
+            }
+
+            function printletter(x){
+                if(mybtn1.getAttribute("disabled")==null)
+                {
+                    document.getElementById(x).innerText="X";
+                    mybtn2.removeAttribute("disabled");
+                    mybtn1.setAttribute("disabled","true");
+                }
+                else{
+                    document.getElementById(x).innerText="O";
+                    mybtn1.removeAttribute("disabled");
+                    mybtn2.setAttribute("disabled","true");
+                }
+            }
+
+        </script>
+    </body>
+</html>
